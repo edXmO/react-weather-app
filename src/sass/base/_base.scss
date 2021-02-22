@@ -11,10 +11,11 @@ html {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-default);
     font-size: 1.6rem;
     line-height: 1rem;
     font-weight: 300;
+    background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
