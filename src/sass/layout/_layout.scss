@@ -4,11 +4,16 @@
     width: 100vw;
     background: #396afc;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #2948ff 50%, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #2948ff 50%, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, #2948ff 30%, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     ;
     display: grid;
     grid-template-columns: repeat(3, 1fr) [content-start] repeat(4, minmax(80px, 1fr)) [content-end] repeat(3, 1fr);
-    grid-template-rows: 1fr [searchbar-start] 0.5fr [searchbar-end weather-start] repeat(5, 1.3fr) [weather-end theme-start] 1fr [theme-end];
+    grid-template-rows: 1fr [searchbar-start] 0.5fr [searchbar-end weather-start] repeat(6, 1.3fr) [weather-end];
+}
+
+.location-ly {
+    grid-row: 1/ 2;
+    grid-column: content-start / content-end;
 }
 
 .searchbar {
@@ -18,10 +23,10 @@
 
 .weather-card {
     border-radius: 5px;
-    box-shadow: inset 0 0 3px 2px var(--color-primary-1);
+    box-shadow: inset 0 0 3px 1px var(--color-primary-1);
     grid-area: weather-start / content-start / weather-end / content-end;
 }
 
-.copy {
-    grid-area: theme-start / content-start / theme-end / content-end;
-}
+// .copy {
+//     grid-area: theme-start / content-start / theme-end / content-end;
+// }
