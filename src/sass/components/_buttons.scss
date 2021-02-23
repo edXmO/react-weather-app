@@ -1,0 +1,13 @@
+.btn-inv {
+    outline:none;
+    border:none;
+    background-color: transparent;
+    cursor:pointer;
+    &--rg {
+        float: right;
+    }
+
+    &--lf {
+        float: left;
+    }
+}

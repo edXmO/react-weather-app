@@ -2,9 +2,12 @@
 .main-container {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(41, 72, 255, 0.9);
+    background: #396afc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2948ff 50%, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2948ff 50%, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ;
     display: grid;
-    grid-template-columns: repeat(3, 1fr) [content-start] repeat(4, minmax(100px, 1fr)) [content-end] repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) [content-start] repeat(4, minmax(80px, 1fr)) [content-end] repeat(3, 1fr);
     grid-template-rows: 1fr [searchbar-start] 0.5fr [searchbar-end weather-start] repeat(5, 1.3fr) [weather-end theme-start] 1fr [theme-end];
 }
 
@@ -15,8 +18,7 @@
 
 .weather-card {
     border-radius: 5px;
-    box-shadow: inset 0 0 3px 2px rgba(224, 228, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 3px 2px var(--color-primary-1);
     grid-area: weather-start / content-start / weather-end / content-end;
 }
 
