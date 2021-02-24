@@ -1,0 +1,17 @@
+.swiper-container {
+    height: 26rem;
+    margin: 1rem 2rem;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    background-color: var(--color-primary);
+
+}

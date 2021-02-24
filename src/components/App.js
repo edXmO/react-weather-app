@@ -4,7 +4,7 @@ import '../sass/main.scss';
 
 
 // Components
-import Copy from './Copy/Copy';
+// import Copy from './Copy/Copy';
 import Searchbar from './Searchbar/Searchbar';
 import CurrentData from './WeatherInfo/CurrentData/CurrentData';
 import Weatherinfo from './WeatherInfo/Weatherinfo';

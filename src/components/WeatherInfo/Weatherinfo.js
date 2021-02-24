@@ -3,6 +3,7 @@ import '../../sass/main.scss';
 
 // Components
 import CurrentData from './CurrentData/CurrentData';
+import Forecast from '../Forecast/Forecast';
 
 
 const Weatherinfo = () => {
@@ -12,6 +13,7 @@ const Weatherinfo = () => {
             <CurrentData data={'Tuesday, February 23, 2021'} styles={'cont-center heading-sm'}/>
             <CurrentData data={'Cloudy'} type={'temp'} styles={'cont-center heading-md'}/>
             <CurrentData data={'7º'} type={'temp'} styles={'cont-center heading-bg'}/>
+            <Forecast/>
         </div>
     )
 }
