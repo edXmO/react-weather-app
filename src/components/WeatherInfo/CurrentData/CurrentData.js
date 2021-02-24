@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CurrentData = ({data, styles, temp}) => {
 
+const CurrentData = ({data, styles, temp}) => {
 
     return (
         <div className={styles}>
@@ -14,5 +14,7 @@ const CurrentData = ({data, styles, temp}) => {
 export default CurrentData;
 
 CurrentData.propTypes = {
-    data: PropTypes.string
+    data: PropTypes.string,
+    styles: PropTypes.string,
+    temp: PropTypes.number
 }

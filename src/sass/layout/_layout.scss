@@ -2,10 +2,6 @@
 .main-container {
     height: 100vh;
     width: 100vw;
-    background: #396afc;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #2948ff 50%, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #2948ff 30%, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    ;
     display: grid;
     grid-template-columns: repeat(3, 1fr) [content-start] repeat(4, minmax(90px, 1fr)) [content-end] repeat(3, 1fr);
     grid-template-rows: 1fr [searchbar-start] 0.5fr [searchbar-end weather-start] repeat(6, 1.3fr) [weather-end];
@@ -14,6 +10,10 @@
 .location-ly {
     grid-row: 1/ 2;
     grid-column: content-start / content-end;
+    transform: translateY(0);
+    animation-name: moveInTop-1;
+    animation-duration: 0.300s;
+    animation-timing-function: var(--bezier-function);
 }
 
 .searchbar {
@@ -27,10 +27,14 @@
         margin-right: .5rem;
         height: 2.5rem;
         width: 2.5rem;
+        animation-name: moveInTop-1;
+        animation-duration: 0.300s;
+        animation-timing-function: var(--bezier-function);
+    
         &--info {
             justify-self: flex-end;
         }
-    }
+    }  
 }
 
 .weather-card {
@@ -38,7 +42,20 @@
 }
 
 .forecast-container {
-    grid-column: content-start/content-end; 
+    grid-column: content-start/content-end;  
+}
+
+.theme-toggler {
+    grid-area: 1 / 10 / 2 / 11;
+    background-color: transparent;
+    height: 3rem;
+    width: 3rem;
+}
+
+@media only screen and (max-width: $screen-medium){
+    .theme-toggler {
+        grid-area: 1 / 7 / 2 / 8;
+    }
 }
 
 // .copy {

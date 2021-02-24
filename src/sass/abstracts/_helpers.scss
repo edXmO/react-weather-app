@@ -5,3 +5,28 @@
     align-content: center;
     justify-content: center;
 }
+
+.light-theme {
+    background: var(--color-primary-1);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, var(--color-primary) 30%, var(--color-primary-1));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, var(--color-primary) 30%, var(--color-primary-1)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+}
+
+.dark-theme {
+    background: var(--color-dark-primary-bg);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, var(--color-dark-primary-comp) 25%, var(--color-dark-primary-bg));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, var(--color-dark-primary-comp) 25%, var(--color-dark-primary-bg)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+.icon-theme {
+    height: 3rem;
+    width: 3rem;
+}
+
+.dark-component {
+    background-color: var(--color-dark-primary-comp);
+}
+
+.light-component {
+    background-color: var(--color-primary);
+}

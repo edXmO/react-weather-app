@@ -8,7 +8,10 @@ import InfoIcon from '../../assets/SVG/info.svg';
 import IconBtn from '../IconBtn/IconBtn';
 
 
-const Searchbar = ({handleTextApiReq, handleGeoLocApiReq}) => {
+const Searchbar = ({handleTextApiReq, handleGeoLocApiReq, theme}) => {
+
+    let activeTheme = theme === 'light-theme' ? 'light-component' : 'dark-component';
+
 
     const [locationQuery, setLocationQuery] = useState('');
 
@@ -32,13 +35,13 @@ const Searchbar = ({handleTextApiReq, handleGeoLocApiReq}) => {
 
 
     return (
-        <div className='searchbar'>
+        <div className={`searchbar ${activeTheme}`}>
             <IconBtn handleIconClick={handleGeoLocClick} btnStyle='btn-inv btn-inv-lf' children={<LocationIcon className='searchbar__icon'/>}/>
-            <div className='input-box'>
+            <div className={`input-box ${activeTheme}`}>
                 <form onSubmit={handleSubmit}>
                 <label className='input-box__label'>
                     <span className='input-box__description'>Location: </span>
-                    <input value={locationQuery} onChange={handleChange} className='input-box__input' type='text' placeholder=''/>
+                    <input value={locationQuery} onChange={handleChange} className={`input-box__input ${activeTheme}`} type='text' placeholder=''/>
                 </label>
                 </form>
             </div>

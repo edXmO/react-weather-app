@@ -1,9 +1,9 @@
 .swiper-container {
     height: 24rem;
     margin: 1rem 2rem;
-    background-color: var(--color-primary);
     border-radius: 5px;
 }
+
 
 .swiper-wrapper {
     display: flex;
@@ -13,9 +13,5 @@
 
 .swiper-slide {
     display: flex;
-    background-color: var(--color-primary);
-}
 
-// .swiper-pagination {
-//     height: 10px;
-// }
+}

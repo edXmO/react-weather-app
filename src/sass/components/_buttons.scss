@@ -11,3 +11,15 @@
         float: left;
     }
 }
+
+.theme-btn {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    justify-self: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+}
