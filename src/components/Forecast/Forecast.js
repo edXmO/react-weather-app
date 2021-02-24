@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import Swiper, {Navigation, Pagination} from 'swiper';
-
+// Components
+import Forecastinfo from './Forecastinfo/Forecastinfo';
+Swiper.use([Navigation, Pagination]);
 
 const Forecast = () => {
-    Swiper.use([Navigation, Pagination]);
     useEffect(() => {
         let swiper = new Swiper('.swiper-container', {
             slidesPerView: 1,
@@ -18,7 +19,8 @@ const Forecast = () => {
             //     el: '.swiper-pagination2'
             // },
             pagination: {
-                el: '.swiper-pagination',
+                el: 'swiper-pagination',
+                type: 'bullets'
               },
         });
     }, [])
@@ -26,10 +28,22 @@ const Forecast = () => {
     return (
         <div className='swiper-container'>
             <div className='swiper-wrapper'>
-                <div className='swiper-slide'>First</div>
-                <div className='swiper-slide'>Second</div>
+                <div className='swiper-slide'>
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                </div>
+                <div className='swiper-slide'>
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                   <Forecastinfo/> 
+                </div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div className="swiper-pagination"></div>
         </div>
 
     ) 

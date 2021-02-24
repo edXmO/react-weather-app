@@ -1,5 +1,5 @@
 .swiper-container {
-    height: 26rem;
+    height: 24rem;
     margin: 1rem 2rem;
     background-color: var(--color-primary);
     border-radius: 5px;
@@ -12,6 +12,6 @@
 }
 
 .swiper-slide {
+    display: flex;
     background-color: var(--color-primary);
-
 }

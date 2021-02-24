@@ -1,0 +1,32 @@
+.forecast-info {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    width: 25%;
+    justify-content: space-around;
+    margin: auto 0;
+    &__title {
+        font-family: var(--font-info);
+        font-size: 2rem;
+        color: var(--color-white);
+    }
+
+    &__icon {
+        height: 3.7rem;
+        width: 3.7rem;
+    }
+
+    &__temperature {
+        font-family: var(--font-info);
+        font-size: 1.8rem;
+        color: var(--color-white);
+    }
+
+    &__rain {
+        font-family: var(--font-info);
+        font-size: 1.8rem;
+        color: var(--color-white);
+
+    }
+}
