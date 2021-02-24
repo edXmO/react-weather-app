@@ -8,10 +8,11 @@ const OPENWEATHER_KEY = apiKeys.openWeatherAPI;
 // Request handliNG
 import axios from 'axios';
 
-//Helpers
+// Helpers
 import apiKeys from '../helpers/apiKeys';
 import INITIAL_STATE from '../helpers/initalState';
 
+// Themes
 import LightTheme from '../assets/SVG/light-theme.svg';
 import DarkTheme from '../assets/SVG/dark-theme.svg';
 
