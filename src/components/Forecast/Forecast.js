@@ -1,27 +1,16 @@
 import React, {useEffect} from 'react';
-import Swiper, {Navigation, Pagination} from 'swiper';
+import SwiperCore from 'swiper';
 // Components
 import Forecastinfo from './Forecastinfo/Forecastinfo';
-Swiper.use([Navigation, Pagination]);
 
 const Forecast = () => {
     useEffect(() => {
-        let swiper = new Swiper('.swiper-container', {
+        let swiper = new SwiperCore('.swiper-container', {
             slidesPerView: 1,
             followFinger: true,
             grabCursor: true,
             direction: 'horizontal',
             loop: false,
-
-            // // If we need pagination
-            // pagination: {
-            //     el: '.swiper-pagination1',
-            //     el: '.swiper-pagination2'
-            // },
-            pagination: {
-                el: 'swiper-pagination',
-                type: 'bullets'
-              },
         });
     }, [])
     
@@ -43,9 +32,7 @@ const Forecast = () => {
                    <Forecastinfo/> 
                 </div>
             </div>
-            <div className="swiper-pagination"></div>
         </div>
-
     ) 
 }
 

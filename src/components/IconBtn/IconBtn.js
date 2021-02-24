@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IconBtn = ({btnStyle, children}) => {
+const IconBtn = ({handleIconClick, btnStyle, children}) => {
 
+    const handleClick = () => {
+        handleIconClick();
+    }
     
     return (
-        <button className={btnStyle}>
+        <button onClick={handleClick} className={btnStyle}>
                     {children}
         </button>
     )
