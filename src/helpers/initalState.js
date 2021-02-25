@@ -1,5 +1,4 @@
 const INITIAL_STATE = {
-    "ip": "83.47.24.114",
     "name": "Madrid",
     "lat": 45.4165,
     "lon": -8.7026,
@@ -1375,46 +1374,3 @@ const INITIAL_STATE = {
 }
 
 export default INITIAL_STATE;
-
-// {
-//     "coord": {
-//         "lon": -8.7026,
-//         "lat": 45.4165
-//     },
-//     "weather": [
-//         {
-//             "id":800,
-//             "main":"Clear",
-//             "description":"clear sky",
-//             "icon":"01n"}
-//         ],
-//     "base":"stations",
-//     "main": {
-//         "temp":286.1,
-//         "feels_like":283.35,
-//         "temp_min":284.82,
-//         "temp_max":287.04,
-//         "pressure":1029,
-//         "humidity":62
-//     },
-//     "visibility":10000,
-//     "wind": {
-//         "speed":2.57,
-//         "deg":110
-//         },
-//     "clouds": {
-//         "all":0
-//     },
-//     "dt":1614192344,
-//     "sys": {
-//         "type":1,
-//         "id":6443,
-//         "country":"ES",
-//         "sunrise":1614149764,
-//         "sunset":1614189618
-//         },
-//     "timezone":3600,
-//     "id":3117735,
-//     "name":"Madrid",
-//     "cod":200
-// }

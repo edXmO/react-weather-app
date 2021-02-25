@@ -1,10 +1,26 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import SwiperCore from 'swiper';
 // Components
 import Forecastinfo from './Forecastinfo/Forecastinfo';
+// Helper
+import helper from '../../helpers/helper';
 
-const Forecast = ({theme}) => {
+const Forecast = ({theme, data}) => {
     let activeTheme = theme === 'light-theme' ? 'light-component' : 'dark-component';
+
+    const {daily, hourly} = data;
+
+    const renderDailyForecast = hourly.slice(0,5).map(hour => {
+        const {dt, temp, humidity} = hour;
+        return <Forecastinfo type={'hourly'} key={dt+temp} hour={helper.parseUnixTime(dt)} temp={helper.decimalParser(helper.kelvinToCelsius(temp))} rain={humidity}/>
+    })
+
+    const renderWeeklyForecast = daily.slice(0,5).map(day => {
+        const {dt, temp, rain} = day;
+        return <Forecastinfo type={'daily'} key={dt+temp} hour={helper.parseUnixTime(dt)} temp={helper.decimalParser(helper.kelvinToCelsius(temp.day))} rain={rain}/>
+    })
+
     useEffect(() => {
         let swiper = new SwiperCore('.swiper-container', {
             slidesPerView: 1,
@@ -19,18 +35,10 @@ const Forecast = ({theme}) => {
         <div className={`swiper-container ${activeTheme}`}>
             <div className='swiper-wrapper'>
                 <div className='swiper-slide'>
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
+                {renderDailyForecast}
                 </div>
                 <div className='swiper-slide'>
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
-                   <Forecastinfo/> 
+                {renderWeeklyForecast}
                 </div>
             </div>
         </div>
@@ -40,6 +48,8 @@ const Forecast = ({theme}) => {
 export default Forecast;
 
 Forecast.propTypes = {
+    theme: PropTypes.string,
+    data: PropTypes.object
 }
 
 

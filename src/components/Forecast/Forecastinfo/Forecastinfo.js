@@ -1,23 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // Svg's 
 import WiCloudy from '../../../assets/SVG/wi-cloudy.svg';
+import RainProb from '../../../assets/SVG/rain-probability.svg';
 import IconBtn from '../../IconBtn/IconBtn';
 
-const ForecastInfo = () => {
+const ForecastInfo = ({hour, temp, rain}) => {
     return (
         <div className='forecast-info'>
             <span className='forecast-info__title'>
-                12:51
+                {hour}
             </span>
             <IconBtn btnStyle={'btn-inv'} children={<WiCloudy className='forecast-info__icon'/>}/>
             <p className='forecast-info__temperature'>
-                26 ºC
+                {temp} ºC
             </p>
             <div className='forecast-info__rain'>
-                0 %
+                <IconBtn btnStyle={'btn-inv'} children={<RainProb className='forecast-info__icon--rain'/>}/>
+                {rain + '%' || '0 %'} 
             </div>
         </div>
     )
 }
 
 export default ForecastInfo;
+
+ForecastInfo.propTypes = {
+    hour : PropTypes.string,
+    temp : PropTypes.string,
+    rain : PropTypes.number
+
+}
