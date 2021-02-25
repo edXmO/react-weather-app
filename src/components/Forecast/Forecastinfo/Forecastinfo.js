@@ -5,7 +5,7 @@ import WiCloudy from '../../../assets/SVG/wi-cloudy.svg';
 import RainProb from '../../../assets/SVG/rain-probability.svg';
 import IconBtn from '../../IconBtn/IconBtn';
 
-const ForecastInfo = ({ type, hour, temp, rain, maxTemp, minTemp, day }) => {
+const ForecastInfo = ({ type, hour, temp, rain, maxTemp, minTemp, day, icon }) => {
     const renderForecast = (type) => {
         if (type === 'HOURLY') {
             return (
@@ -13,13 +13,14 @@ const ForecastInfo = ({ type, hour, temp, rain, maxTemp, minTemp, day }) => {
                     <span className="forecast-info__title">{hour}</span>
                     <IconBtn
                         btnStyle={'btn-inv'}
-                        children={<WiCloudy className="forecast-info__icon" />}
+                 
+                        icon={icon}
                     />
                     <p className="forecast-info__temperature">{temp} ºC</p>
                     <div className="forecast-info__rain">
                         <IconBtn
                             btnStyle={'btn-inv'}
-                            children={<RainProb className="forecast-info__icon--rain" />}
+                            children={<RainProb className='forecast-info__icon'/>}   
                         />
                         {rain + '%' || '0 %'}
                     </div>
@@ -32,14 +33,14 @@ const ForecastInfo = ({ type, hour, temp, rain, maxTemp, minTemp, day }) => {
                     <span className="forecast-info__title">{day}</span>
                     <IconBtn
                         btnStyle={'btn-inv'}
-                        children={<WiCloudy className="forecast-info__icon" />}
+                        icon={icon}
                     />
                     <p className="forecast-info__temperature">{maxTemp} ºC</p>
                     <p className="forecast-info__temperature">{minTemp} ºC</p>
                     <div className="forecast-info__rain">
                         <IconBtn
                             btnStyle={'btn-inv'}
-                            children={<RainProb className="forecast-info__icon--rain" />}
+                            children={<RainProb className='forecast-info__icon'/>}   
                         />
                         {'0 %' || rain + '%'}
                     </div>

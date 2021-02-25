@@ -13,7 +13,7 @@ const Forecast = ({ theme, data }) => {
     const { daily, hourly } = data;
 
     const renderDailyForecast = hourly.slice(0, 5).map((hour) => {
-        const { dt, temp, humidity } = hour;
+        const { dt, temp, humidity, weather } = hour;
         return (
             <Forecastinfo
                 type={'HOURLY'}
@@ -21,12 +21,13 @@ const Forecast = ({ theme, data }) => {
                 hour={helper.parseUnixTime(dt)}
                 temp={helper.decimalParser(helper.kelvinToCelsius(temp))}
                 rain={humidity}
+                icon={weather[0].main}
             />
         );
     });
 
     const renderWeeklyForecast = daily.slice(0, 5).map((day) => {
-        const { dt, temp, rain } = day;
+        const { dt, temp, rain, weather } = day;
         return (
             <Forecastinfo
                 type={'DAILY'}
@@ -35,6 +36,7 @@ const Forecast = ({ theme, data }) => {
                 maxTemp={helper.decimalParser(helper.kelvinToCelsius(temp.max))}
                 minTemp={helper.decimalParser(helper.kelvinToCelsius(temp.min))}
                 rain={rain}
+                icon={weather[0].main}
             />
         );
     });

@@ -26,7 +26,7 @@ import IconBtn from './IconBtn/IconBtn';
 const OPENWEATHER_KEY = apiKeys.openWeatherAPI;
 const OPENCAGE_KEY = apiKeys.openCageAPI;
 
-const init = (INITIAL_STATE) => {
+const init = INITIAL_STATE => {
     return { ...INITIAL_STATE };
 };
 
@@ -47,7 +47,7 @@ const App = () => {
 
     const handleGeoLocationForecastCall = () => {
         if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition((position) => {
+            navigator.geolocation.getCurrentPosition(position => {
                 axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=${OPENCAGE_KEY}`)
                 .then(response => {
                     let name = response.data.results[0].components.city;
@@ -59,10 +59,10 @@ const App = () => {
                                 position.coords.longitude
                             }&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`
                         )
-                        .then((response) =>
+                        .then(response =>
                             dispatch({ type: 'GEOLOCATION_API_REQ', payload: {...response.data, name: name} })
                         )
-                        .catch((err) => console.error(err));
+                        .catch(err => console.error(err));
                 })
             });
         } else {
@@ -70,12 +70,12 @@ const App = () => {
         }
     };
 
-    const handleTextLocationForecastCall = (query) => {
+    const handleTextLocationForecastCall = query => {
         axios
             .get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${OPENWEATHER_KEY}`
             )
-            .then((response) => {
+            .then(response => {
                 let name = response.data.name;
                 return axios
                     .get(
@@ -85,15 +85,15 @@ const App = () => {
                             response.data.coord.lon
                         }&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`
                     )
-                    .then((response) =>
+                    .then(response =>
                         dispatch({
                             type: 'TEXTLOCATION_API_REQ',
                             payload: { ...response.data, name: name }
                         })
                     )
-                    .catch((err) => console.error(err));
+                    .catch(err => console.error(err));
             })
-            .catch((err) => console.error(err));
+            .catch(err => console.error(err));
     };
 
     return (
