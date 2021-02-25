@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -18,11 +18,7 @@ module.exports = merge(common,{
             title: 'React Weather App',
             template: path.resolve(__dirname, 'public', 'index.html')
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].bundle.css',
-            chunkFilename: '[id].css'
-        })
+        new webpack.HotModuleReplacementPlugin()
     ]
 })
 

@@ -69,7 +69,7 @@ const App = () => {
     const handleTextLocationForecastCall = (query) => {
         axios
             .get(
-                `http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${OPENWEATHER_KEY}`
+                `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${OPENWEATHER_KEY}`
             )
             .then((response) => {
                 let name = response.data.name;
