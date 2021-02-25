@@ -16,8 +16,13 @@ const helper = {
         let month = date.toLocaleString('en-US',{month: 'long'});
         let year = date.toLocaleString('en-US', {year: 'numeric'});
         return day + ', ' + month + ' ' + dayNumeric + ', ' + year;
-
+    },
+    parseUnixGetDay: function(time){
+        let date = new Date(time*1000)
+        let day = date.toLocaleString('en-US',{weekday: 'short'});
+        return day;
     }
+
 }
 
 export default helper;
