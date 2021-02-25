@@ -12,7 +12,7 @@ import Forecast from '../Forecast/Forecast';
 
 const Weatherinfo = ({data, theme}) => {
     
-    const temp = data.main === undefined ? '' : helper.decimalParser(helper.kelvinToCelsius(data.main.temp))+' ºC';
+    const temp = data.current === undefined ? '' : helper.decimalParser(helper.kelvinToCelsius(data.current.temp))+' ºC';
 
     return (
         <div className='weather-card'>

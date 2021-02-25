@@ -21,7 +21,6 @@ const Searchbar = ({handleTextApiReq, handleGeoLocApiReq, theme}) => {
     }
 
     const handleGeoLocClick = () => {
-        console.log('allow geolocation');
         handleGeoLocApiReq();
     }
 

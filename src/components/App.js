@@ -11,6 +11,7 @@ import axios from 'axios';
 // Helpers
 import apiKeys from '../helpers/apiKeys';
 import INITIAL_STATE from '../helpers/initalState';
+import helper from '../helpers/helper';
 
 // Themes
 import LightTheme from '../assets/SVG/light-theme.svg';
@@ -30,7 +31,10 @@ const init = (INITIAL_STATE) => {
 
 const dataReducer = (locationData, action) => {
     switch(action.type){
-        case 'LOCATION_API_REQ':
+        case 'GEOLOCATION_API_REQ':
+            console.log('getting user location by COORDS')
+           return {...locationData, ...action.payload};
+        case 'TEXTLOCATION_API_REQ':
             return {...locationData, ...action.payload};
         default:
             return locationData;
@@ -43,16 +47,27 @@ const App = () => {
     const [locationData, dispatch] = useReducer(dataReducer, INITIAL_STATE, init);
 
     const handleGeoLocationForecastCall = () => {
-        console.log('handleGeolocation first')
-        // axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_KEY}`)
-        // .then(response => console.log(response.data))
-        // .catch(err => console.error(err));
+        if('geolocation' in navigator){
+            navigator.geolocation.getCurrentPosition(position => {
+                axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`)
+                .then(response => dispatch({type: 'GEOLOCATION_API_REQ', payload: response.data}))
+                .catch(err => console.error(err))
+            })
+        } 
+        else {
+            console.log('Location not available')
+        }
     };
 
     const handleTextLocationForecastCall = query => {
         axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${OPENWEATHER_KEY}`)
-        .then(response => dispatch({type: 'LOCATION_API_REQ', payload: response.data}))
-        .catch(err => console.error(err))
+        .then(response => {
+            let name = response.data.name
+            return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`)
+                    .then(response => dispatch({type: 'TEXTLOCATION_API_REQ', payload: {...response.data, name: name}}))
+                    .catch(err => console.error(err))
+        })            
+        .catch(err => console.error(err))  
     };
 
     return (
