@@ -24,6 +24,7 @@ import IconBtn from './IconBtn/IconBtn';
 
 // Keys
 const OPENWEATHER_KEY = apiKeys.openWeatherAPI;
+const OPENCAGE_KEY = apiKeys.openCageAPI;
 
 const init = (INITIAL_STATE) => {
     return { ...INITIAL_STATE };
@@ -32,7 +33,6 @@ const init = (INITIAL_STATE) => {
 const dataReducer = (locationData, action) => {
     switch (action.type) {
         case 'GEOLOCATION_API_REQ':
-            console.log('getting user location by COORDS');
             return { ...locationData, ...action.payload };
         case 'TEXTLOCATION_API_REQ':
             return { ...locationData, ...action.payload };
@@ -48,18 +48,22 @@ const App = () => {
     const handleGeoLocationForecastCall = () => {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
-                axios
-                    .get(
-                        `https://api.openweathermap.org/data/2.5/onecall?lat=${
-                            position.coords.latitude
-                        }&lon=${
-                            position.coords.longitude
-                        }&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`
-                    )
-                    .then((response) =>
-                        dispatch({ type: 'GEOLOCATION_API_REQ', payload: response.data })
-                    )
-                    .catch((err) => console.error(err));
+                axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=${OPENCAGE_KEY}`)
+                .then(response => {
+                    let name = response.data.results[0].components.city;
+                    axios
+                        .get(
+                            `https://api.openweathermap.org/data/2.5/onecall?lat=${
+                                position.coords.latitude
+                            }&lon=${
+                                position.coords.longitude
+                            }&exclude=${'minutely,alerts'}&appid=${OPENWEATHER_KEY}`
+                        )
+                        .then((response) =>
+                            dispatch({ type: 'GEOLOCATION_API_REQ', payload: {...response.data, name: name} })
+                        )
+                        .catch((err) => console.error(err));
+                })
             });
         } else {
             console.log('Location not available');
