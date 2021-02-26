@@ -23,6 +23,11 @@
 - Jest
 - Webpack
 
+## API's
+
+- OpenWeatherAPI
+- OpenCageAPI
+
 ## Todo's
 
 - Tests => In progress
