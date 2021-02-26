@@ -13,8 +13,6 @@
 
 - This project was built for learning purposes. I wanted to learn Webpack, Axios, Promise based requests to API's, Light/Dark mode theming and how to turn a webapp to a PWA (Progressive Web App => Working on it ATM)
 
-[Imgur](https://i.imgur.com/8DRxIEN.gif)
-
 ## Stack
 
 - Javascript (ES6)
