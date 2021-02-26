@@ -19,11 +19,13 @@ const IconBtn = ({ handleIconClick, btnStyle, children, icon }) => {
 
     return (
         <React.Fragment>
-            {!icon ? <button onClick={handleClick} className={btnStyle}>
+            {
+            !icon ? <button onClick={handleClick} className={btnStyle}>
                 {children}
             </button>
             :
-            renderWeatherIcon(icon)}
+            renderWeatherIcon(icon)
+            }
         </React.Fragment>
     );
 };
