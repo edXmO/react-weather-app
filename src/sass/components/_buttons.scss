@@ -3,6 +3,9 @@
     border:none;
     background-color: transparent;
     cursor:pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+
     &--rg {
         float: right;
     }
@@ -20,6 +23,8 @@
     outline: none;
     border: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
     height: 4.5rem;
     width: 4.5rem;
 }
