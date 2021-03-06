@@ -30,3 +30,19 @@
     animation-timing-function: var(--bezier-function);
 
 }
+
+@media only screen and (min-height: 700px){
+    .heading-bg {
+        margin-top: 8rem;
+        font-size: 5.5rem;
+
+    }
+}
+
+@media only screen and (min-height: 800px){
+    .heading-bg {
+        margin-top: 12rem;
+        font-size: 7rem;
+
+    }
+}

@@ -15,9 +15,16 @@ module.exports = merge(common,{
     plugins: [
         new HtmlWebpackPlugin({
             title: 'React Weather App',
-            template: path.resolve(__dirname, 'public', 'index.html')
+            template: path.resolve(__dirname, 'public', 'index.html'),
+            minify: {
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true,
+                removeComments: true
+            }
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin(),
     ]
 })
 
